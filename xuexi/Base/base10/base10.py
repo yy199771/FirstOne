@@ -22,3 +22,4 @@ del aa
 
 print bb
 print 'abc test!'
+print 'hahahahaha'

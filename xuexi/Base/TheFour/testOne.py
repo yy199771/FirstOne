@@ -40,3 +40,4 @@ print n
 #get:更为轻松的访问字典项的方法。
 da = {}
 print da.get('name')
+print 'name'
