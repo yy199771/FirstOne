@@ -140,3 +140,4 @@ print y
 x = ['We','are','the','knights','who','say','ni']
 y = tuple(x)
 print y
+print x
