@@ -54,3 +54,12 @@ print zip(names,ages)
 
 for name,age in zip(names,ages):
     print name, 'is', age, 'years old.'
+
+# 编号迭代
+# enumerate函数。
+
+
+# 翻转和排序迭代
+# reversed和sorted:不是原地修改对象。
+
+
