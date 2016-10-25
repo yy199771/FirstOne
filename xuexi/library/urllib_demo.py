@@ -3,8 +3,8 @@ import urllib2
 import urllib
 
 # 使用urllib
-url_ip = 'http://www.we.com/'
-url_get = 'http://www.we.com/fund/info/tag000001'
+url_ip = 'http://127.0.0.1:8000'
+url_get = 'http://127.0.0.1:8000/ip'
 
 def use_simple_urllib2():
     response = urllib2.urlopen(url_ip)
