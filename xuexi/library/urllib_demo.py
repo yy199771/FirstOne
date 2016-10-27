@@ -11,7 +11,7 @@ def use_simple_urllib2():
     print '>>>Response Headers:'
     print response.info()
     print '>>>Response body:'
-    print ''.join([line for line in response.readlines()])
+    #print ''.join([line for line in response.readlines()])
 
 def use_params_urllib2():
     # 构建请求参数
