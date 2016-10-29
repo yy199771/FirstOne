@@ -28,7 +28,7 @@ def params_requests():
     print response.url
 
 def json_requests():
-    response = requests.patch(build_uri('user'), auth=('yy199771','1qazxsw2'),json={'name':'yymmx'})
+    response = requests.patch(build_uri('user'), auth=('yy199771',''),json={'name':'yymmx'})
     print better_print(response.text)
     print response.request.headers
     print response.request.body
