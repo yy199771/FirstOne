@@ -50,7 +50,7 @@ def hard_requests():
     from requests import Request,Session
     s = Session()
     headers = {'User-Agent': 'fake1.3.4'}
-    req = Request('GET',build_uri('user/emails'), auth=('yy199771@163.com','1qazxsw2'),headers=headers)
+    req = Request('GET',build_uri('user/emails'), auth=('yy199771@163.com',''),headers=headers)
     prepped = req.prepare()
     print prepped.body
     print prepped.headers
