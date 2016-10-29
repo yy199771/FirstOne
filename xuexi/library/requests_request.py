@@ -1,4 +1,4 @@
-#coding='utf-8'
+#coding=utf-8
 
 import json
 import requests
@@ -36,7 +36,7 @@ def json_requests():
 
 def timeout_requests():
     try:
-        response = requests.get(build_uri('user/emails'),timeout=10)
+        response = requests.get(build_uri('user/emails'), timeout=10)
         response.raise_for_status()
     except exceptions.Timeout as e:
         print e.message
@@ -50,7 +50,7 @@ def hard_requests():
     from requests import Request,Session
     s = Session()
     headers = {'User-Agent': 'fake1.3.4'}
-    req = Request('GET',build_uri('user/emails'),auth=('yy199771@163.com','1qazxsw2'),headers=headers)
+    req = Request('GET',build_uri('user/emails'), auth=('yy199771@163.com','1qazxsw2'),headers=headers)
     prepped = req.prepare()
     print prepped.body
     print prepped.headers
@@ -62,7 +62,7 @@ def hard_requests():
 
 if __name__ == '__main__':
     #request_method()
-    #params_requests()
+    params_requests()
     #json_requests()
     #timeout_requests()
-    hard_requests()
+    #hard_requests()
