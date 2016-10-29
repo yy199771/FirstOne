@@ -11,7 +11,7 @@ def basic_auth():
     '''基本认证
     '''
 
-    response = requests.get(construct_url('user'),auth=('yy199771@163.com','1qazxsw2'))
+    response = requests.get(construct_url('user'),auth=('yy199771@163.com',''))
 
     print response.text
     #print response.json()
