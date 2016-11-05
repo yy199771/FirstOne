@@ -67,3 +67,13 @@ def func33(*kargs, **kwargs):
     return kargs
 
 print func33(1,2,3,4,5,6,7,8,9,[1,2,3,4,5],{1:2,3:4,5:6})
+
+
+# 4
+
+def func41(i):
+    if i <100:
+        return i + func41(i+1)
+    return i
+
+print func41(10)

@@ -17,9 +17,11 @@ def MaxMinNum(*num):
     for x in num:
         if not isinstance(x, int):
             return '请输入数字!'
-    print type(num)
-    a = list(num)
-    return max(a), min(a)
+    a = sorted(num)
+    return 'maxNum is %d' %a[-1],'minNum is %d' %a[0]
+
+n = MaxMinNum(111,2,3,4,32,42,35,12)
+print n
 
 # 2:
 
@@ -29,23 +31,43 @@ def MaxLengStr(*sen):
            return '请输入字符串!'
 
     a = sorted(sen, key=lambda k:len(k))
+
+    print 'a sorted: %s' %a
+
     return 'MaxStr is %s ' %(len(a[-1]))
+
+s = MaxLengStr('ad','fafs','fdasfdsfsa','fasfs','fafas','fafdsfds','12','ffdsa')
+print s
 
 
 # 3:
+'''
+3.定义一个方法get_doc(module)，module参数为该脚本中导入或定义的模块对象，该函数返回module的帮助文档。
+例 print get_doc(urllib),则会输出urllib这个模块的帮助文档。
+'''
 import os
 
 def get_doc(module):
     a = 'pydoc %s' % module
+    print a
     m = os.popen(a).read()
     return m
 
+q3 = get_doc('os')
+#print q3
 
-n = MaxMinNum(111,2,3,4,32,42,35,12)
-print n
 
-s = MaxLengStr('ad','fafs','fdasfdsfsa','fasfs')
-print s
+'''
+4.定义一个方法get_text(f),f参数为任意一个文件的磁盘路径，该函数返回f文件的内容。
+'''
+def get_text(f):
+    if not isinstance(f, str):
+        return '请输入字符串路径!'
 
-q3 = get_doc('aaa')
-print q3
+    a = 'cat %s' %f
+    m = os.popen(a).read()
+    return m
+
+f = '/Users/yy/enter_20161018'
+f_func = get_text(f)
+print f_func
