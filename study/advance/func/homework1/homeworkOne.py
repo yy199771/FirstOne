@@ -63,10 +63,13 @@ q3 = get_doc('os')
 def get_text(f):
     if not isinstance(f, str):
         return '请输入字符串路径!'
-
-    a = 'cat %s' %f
-    m = os.popen(a).read()
-    return m
+    # 判断文件是否存在!
+    if os.path.isfile(f):
+        a = 'cat %s' %f
+        m = os.popen(a).read()
+        return m
+    else:
+        return '文件不存在!'
 
 f = '/Users/yy/enter_20161018'
 f_func = get_text(f)
