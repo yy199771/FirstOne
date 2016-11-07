@@ -72,5 +72,24 @@ def get_text(f):
         return '文件不存在!'
 
 f = '/Users/yy/enter_20161018'
-f_func = get_text(f)
-print f_func
+filename= get_text(f)
+print filename
+
+'''
+5.定义一个方法get_dir(folder),folder参数为任意一个文件夹，该函数返回folder文件夹的文件列表。提示（可以了解python的glob模块）
+'''
+import glob
+
+def get_dir(folder):
+    if not isinstance(folder, str):
+        return '请输入字符串路径!'
+    # 判断文件夹是否存在
+    if os.path.isdir(folder):
+        # 获取文件夹里面的特定后缀名的文件
+        for filename in glob.glob(folder+'/*.enex'):
+            return filename
+
+fd = '/Users/yy/Documents'
+file_dir = get_dir(fd)
+print file_dir
+

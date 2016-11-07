@@ -108,18 +108,21 @@ print z
 #    reverse将列表元素反向存放
 z.reverse()
 print z
-#    sort用于在“原位置”对列表进行排序，直接改变列表，而不是返回一个列表副本.
-#    另外一种获取原位置和副本的方式。sorted
+'''
+1、sort用于在“原位置”对列表进行排序，直接改变列表，而不是返回一个列表副本.
+2、另外一种获取原位置和副本的方式。sorted
+3、sort和sorted排序都是从低到高排序
+'''
 xx = [1,4,65,23,3,54,13,6,87,542]
 yy = xx[:]
 xx.sort()
-print yy
-print xx
+print 'yy is %s' %yy
+print 'xx sort: %s' %xx
 
 xx = [3,4,2,8,3,90,42,5,3]
 yy = sorted(xx)
-print xx
-print yy
+print 'xx is %s' %xx
+print 'yy sorted: %s' %yy
 #    高级排序
 print cmp(32,49)
 print cmp(44,22)
