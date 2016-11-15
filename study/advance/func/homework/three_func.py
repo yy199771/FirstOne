@@ -59,3 +59,23 @@ def func1(i):
 	return i
 print func1(0)
 '''
+
+'''
+1 用lambda和filter完成下面功能：输出一个列表，列表里面包括：1-100内的所有偶数。（提示：可以用filter,lambda）
+'''
+def get_numList(numList):
+    if isinstance(numList, list):
+        numList = numList
+        # 过滤100以内的偶数
+        g = filter(lambda x:x % 2 ==0 ,numList)
+        return g
+    else:
+        return '请输入一个数字list!'
+
+print get_numList(range(1,101))
+
+'''
+2 用位置匹配，关键字匹配，收集匹配(元组收集,字典收集)分别写4个函数，完成功能；
+'''
+# 位置匹配
+
