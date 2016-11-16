@@ -88,3 +88,88 @@ def add(x, y):
 params = (1,2)
 f = add(*params)
 print f
+
+params_ = {'name':'Sir.Robin', 'greeting':'Well met'}
+print_params_3(**params_)
+
+def with_stars(**kwds):
+    print kwds['name'], 'is', kwds['age'], 'years old.'
+
+def without_stars(kwds):
+    print kwds['name'], 'is', kwds['age'], 'years old.'
+
+args ={'name': 'Mr.Gumby', 'age':42}
+# 星号只在定义函数(允许使用不定数目的参数)或者调用('分割'字典或者序列)时才有用。
+with_stars(**args)
+without_stars(args)
+
+'''
+练习使用参数
+'''
+def story(**kwds):
+    return 'Once upon a time, there was a ' \
+           '%(job)s called %(name)s.' % kwds
+
+def power(x, y, *others):
+    if others:
+        print 'Received redundant paramenters:', others
+    return pow(x, y)
+
+def interval(start, stop=None, step=1):
+    'Imitates range() for step >0'
+    if stop is None:            # 如果没有为stop提供值
+        start, stop=0, start    # 指定参数
+    result = []
+    i = start                   # 计算start索引
+    while i< stop:              # 直到计算到stop索引
+        result.append(i)        # 将索引添加到result内
+        i += step               # 用step(>0)增加索引
+    return result
+
+print story(job='king', name='Gumby')
+print story(name='Sir Robin', job='brave knight')
+
+params_story = {'job': 'language', 'name':'Python'}
+print story(**params_story)
+
+del params_story['job']
+print story(job='stroke of genius', **params_story)
+
+print power(2,3)
+print power(y=3, x=2)
+params_power = (5,) * 2
+print power(*params_power)
+print power(3, 3, 'Hello world')
+
+print interval(10)
+print interval(1, 5)
+print interval(3, 12, 4)
+#print power(interval(3, 7))
+
+'''
+作用域:全局变量与局部变量重名时,全局会被覆盖,除非使用globals()
+'''
+
+'''
+递归
+'''
+# 二元搜索
+# bisect模块可以非常有效的实现二元查找
+
+def search(sequence, number, lower, upper):
+    if lower ==upper:
+        assert number ==sequence[upper]
+        return upper
+    else:
+        middle = (lower + upper)  // 2
+        if number > sequence[middle]:
+            return search(sequence, number, middle+1, upper)
+        else:
+            return search(sequence, number, lower, middle)
+
+seq = [34,67,8, 123,4,100,95]
+seq.sort()
+print seq
+print search(seq, 34)
+
+
