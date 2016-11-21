@@ -80,3 +80,49 @@ lq = student('liqiang',23,[82,60,99])
 print lq.get_name()
 print lq.get_age()
 print lq.get_course()
+
+
+class dictclass(dict):
+
+    def __init__(self, d):
+        self.d = d
+        # 判断d是否为一个dict
+        if not isinstance(self.d, dict):
+            return '请输入一个dict.'
+
+    def del_dict(self, key):
+        self.key = key
+        # 判断key是否在dict里面
+        if not self.no_key in self.d.keys():
+            return 'key is not in dict.'
+        del self.d[key]
+        return self.d
+
+    def get_dict(self, no_key):
+
+        self.no_key = no_key
+        # 判断key是否在dict,如果在输入key对应的value。
+        if not no_key in self.d.keys():
+            return 'not found.'
+        return self.d[self.no_key]
+
+    # 将key组成新的list。
+    def get_key(self):
+        keyList=[]
+        for key in self.d.keys():
+            keyList.append(key)
+        return keyList
+
+    # 将value组成新的list。
+    def update_dict(self):
+        valueList = []
+        for value in self.d.values():
+            valueList.append(value)
+        return valueList
+
+test_dict =  {"a" : "apple", "b" : "banana", "g" : "grape", "o" : "orange"}
+dd = dictclass(test_dict)
+#print dd.del_dict('a')
+#print dd.get_dict('g')
+#print dd.get_key()
+print dd.update_dict()
