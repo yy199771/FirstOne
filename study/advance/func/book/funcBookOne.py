@@ -170,6 +170,32 @@ def search(sequence, number, lower, upper):
 seq = [34,67,8, 123,4,100,95]
 seq.sort()
 print seq
-print search(seq, 34)
+#print search(seq, 34)
 
+'''
+map、filer:在当前版本并不是特别有用,并且可以使用列表推到式代替。不过可以使用map函数将序列中的元素全部传递给一个函数。
+reduce: 一般来说不能轻松被列表推到式,通常不用到这个功能,它会将序列的前2个元素与给定的函数联合使用。并将返回值与第三个元素继续联合使用,直到整个序列都处理完毕。
+'''
 
+# map
+# map(function, sequence) ：对sequence中的item依次执行function(item)，见执行结果组成一个List返回：
+print map(str, range(10))
+
+# filter函数可以基于一个返回布尔值的函数对元素进行过滤。
+# 对sequence中的item依次执行function(item)，将执行结果为True的item组成一个List/String/Tuple（取决于sequence的类型）返回：
+
+def func_filter(x):
+    return x.isalnum()
+
+seq = ['foo', 'x41', '?!', '***']
+print filter(func_filter, seq)
+
+# 使用推到式可以不用专门定义一个函数:
+print [x for x in seq if x.isalnum()]
+
+# reduce(function, sequence, starting_value)：对sequence中的item顺序迭代调用function，如果有starting_value，还可以作为初始值调用，例如可以用来对List求和：
+def add(x, y):
+    return x + y
+
+print reduce(add, range(1, 11))
+print reduce(add, range(1, 11), 20)
