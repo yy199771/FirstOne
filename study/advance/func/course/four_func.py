@@ -64,6 +64,9 @@ print func32(k1=3,k3=7,k2=19)
 '''
 
 def func33(*kargs, **kwargs):
+    print 'func33'
+    print type(kargs)
+    print type(kwargs)
     return kargs
 
 print func33(1,2,3,4,5,6,7,8,9,[1,2,3,4,5],{1:2,3:4,5:6})

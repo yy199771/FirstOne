@@ -68,14 +68,16 @@ hello4('Mars', greeting='Top of the morning to ya')
     收集参数:提供任意数量的参数。
 '''
 def print_params_3(**params):
+    print 'params3'
     print params
+    print '-------------'
 
 print_params_3(x=1, y=2, z=3)
 
 def print_params_4(x, y, z=3, *pospar, **keypar):
     print x, y, z
-    print pospar
-    print keypar
+    print 'pospar is ', pospar
+    print 'keypar is ', keypar
 
 print_params_4(1,2,3,4,5,6,7,foo=1, bar=2)
 
