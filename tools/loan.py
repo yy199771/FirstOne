@@ -20,7 +20,7 @@ def equality_corpus_and_interest(a, i, N,n):
     BX = x * y / z
     print '每月还款额 = %f '  % BX
     #return BX
-    yy = (1+float(i) / 100) ** (n -1)
+    yy = (1+float(i) / 100) ** (n - 1)
     #某月还款本金
     B = x * yy / z
     print   '第%i 期应还本金 = %f ' %(n,B)
@@ -29,7 +29,7 @@ def equality_corpus_and_interest(a, i, N,n):
     print '第%i期应还的利息 = %f ' % (n,X)
     #return  X
 
-
+equality_corpus_and_interest(600000, 0.063, 120, 1)
 
 # 每月借款管理费
 def loan_manager_fee(a, j):
