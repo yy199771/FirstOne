@@ -35,6 +35,10 @@
 9.5.3、__getattr__,__setattr__和它的朋友们
     拦截对象的所有特性访问是可能的,为了访问特性的时候可以执行代码,必须使用一些魔法方法。
     下面的4种方法提供了需要的功能。
+    __getattribute__(self, name):当特性name被访问时自动被调用(只能在新式类中使用)
+    __getattr__(self, name):当特性name被访问且对象没有相应的特性时被自动调用。
+    __setattr__(self, name, value):当试图给特性name赋值时会被自动调用。
+    __delattr__(self, name):试图删除特性name时被自动调用。
 '''
 
 # 9.2.1
@@ -98,7 +102,7 @@ class CounterList(list):
         super(CounterList, self).__init__(*args)
         self.counter = 0
     def __getitem__(self, index):
-        self.counter +=1
+        self.counter += 1
         return super(CounterList, self).__getitem__(index)
 
 cl = CounterList(range(10))
