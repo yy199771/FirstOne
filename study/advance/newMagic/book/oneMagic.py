@@ -39,6 +39,25 @@
     __getattr__(self, name):当特性name被访问且对象没有相应的特性时被自动调用。
     __setattr__(self, name, value):当试图给特性name赋值时会被自动调用。
     __delattr__(self, name):试图删除特性name时被自动调用。
+
+9.6、迭代器
+    只讨论一个特殊方法,__iter__。这个方法是迭代器规则的基础。
+9.6.1、迭代器规则
+    __iter__方法返回一个迭代器。所谓的迭代器就是具有next方法的对象。
+9.6.2、从迭代器得到序列
+    一个很有用的例子就是使用list构造方法显示地将迭代器转化为列表。
+
+9.7、生成器:是一种用普通的函数语法定义的迭代器。
+9.7.1、创建生成器
+9.7.2、递归生成器
+    不要对字符串进行迭代。
+9.7.3、通用生成器
+9.7.4、生成器方法
+    生成器的新属性是在开始运行后为生成器提供值的能力。表现为生成器和"外部世界"进行交流的渠道,要注意以下2点:
+        1、外部作用域访问生成器的send方法,就像访问next方法一样。
+        2、在内部则挂起生成器,yield现在作为表达式而不是语句使用。
+
+书:183页
 '''
 
 # 9.2.1
@@ -152,3 +171,46 @@ MyClass.smeth()
 MyClass.cmeth()
 
 # 9.5.3
+
+# 9.6.1
+it = iter([1,2,3])
+print it.next()
+print it.next()
+
+# 9.6.2
+class TestIterator:
+    value = 0
+    def next(self):
+        self.value += 1
+        if self.value > 10: # raise StopIteration
+            pass
+        return self.value
+    def __iter__(self):
+        return self
+
+#ti = TestIterator()
+#print list(ti)
+print '----------------9.7.1----------------------'
+# 9.7.1
+nested = [[1, 2],[3, 4],[5]]
+def flatten(nested):
+    for sublist in nested:
+        for element in sublist:
+            # 任何包含yield语句的函数称为生成器。除了名字不同外,它的行为和普通函数也有很大差别。
+            # 它不像return那样返回值,而是每次产生多个值,每次产生一个值(使用yield语句),函数就会被冻结:即函数停在那点等待被激活。函数被激活后就从停止的那个点开始执行。
+            yield element
+
+for num in flatten(nested):
+    print num
+
+print '----------------9.7.2----------------------'
+# 9.7.2
+def flatten2(nested):
+    try:
+        for sublist in nested:
+            for element in flatten2(sublist):
+                yield element
+    except TypeError:
+        yield nested
+
+print list(flatten2([[1, 2], 3, 4, [5, [6, 7], 8]]))
