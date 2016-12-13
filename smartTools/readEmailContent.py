@@ -5,7 +5,7 @@ import getpass, imaplib
 
 #输入邮件地址，口令和pop3服务器地址：
 email_adr = 'yangyang@we.com'
-password = '1@qWaSzX'
+password = 'XXXXXXXX'
 exchange_server = 'mail.we.com'
 
 #连接到pop3服务器：

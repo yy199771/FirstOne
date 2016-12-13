@@ -8,7 +8,7 @@ from email.header import Header
 
 #输入email地址和口令：
 from_addr = 'yangyang@we.com'
-password = '1@qWaSzX'
+password = 'XXXXXX'
 
 # 输入收件人地址：
 to_addr = 'yangyang@we.com'
