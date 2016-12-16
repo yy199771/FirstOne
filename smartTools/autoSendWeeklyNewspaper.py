@@ -27,6 +27,6 @@ smtp_server = 'mail.we.com'
 server = smtplib.SMTP() #smtp协议默认端口是25
 server.connect(smtp_server)
 server.set_debuglevel(1)
-server.login(from_addr,password)
+server.login(from_addr, password)
 server.sendmail(from_addr, [to_addr], msg.as_string())
 server.quit()
